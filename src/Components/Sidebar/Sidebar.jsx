@@ -28,14 +28,18 @@ const Sidebar = () => {
                 </div> : ''}
             </div>
             <div className="inline-flex flex-col">
+                <a href="https://support.google.com/gemini/answer/13594961?visit_id=01719752126129-5158129070927022220&p=privacy_help&rd=1">
                 <div className="flex justify-start items-center gap-3 hover:bg-[#e6e8ea] px-3 py-2 rounded-full cursor-pointer">
                     <FaRegCircleQuestion className="w-5 h-5" />
                     {expend ? <h1>Help</h1> : ''}
                 </div>
+                </a>
+                <a href="https://myactivity.google.com/product/gemini?utm_source=gemini">
                 <div className="flex justify-start items-center gap-3 hover:bg-[#e6e8ea] px-3 py-2 rounded-full cursor-pointer">
                     <RiHistoryFill className="w-5 h-5" />
                     {expend ? <h1>Activity</h1> : ""}
                 </div>
+                </a>
                 <div className="flex justify-start items-center gap-3 hover:bg-[#e6e8ea] px-3 py-2 rounded-full cursor-pointer">
                     <MdOutlineSettings className="w-5 h-5" />
                     {expend ? <h1>Settings</h1> : ''}
