@@ -43,7 +43,7 @@ const MainLayOut = () => {
                             <p>How can I help you today?</p>
                         </div>
                         <Cards />
-                    </div> : <div className="h-[430px] result">
+                    </div> : <div className="h-[62vh] result">
 
                         <div className="flex items-center gap-5 mb-10">
                             <img className="w-10 h-10 rounded-full" src={profile} alt="profile image" />
