@@ -19,12 +19,24 @@ const ContextProvider = ({ children }) => {
         }, 75 * index)
     }
 
-    const onSent = async () => {
+    const newChat = () => {
+        setloading(false)
+        setShowResult(false)
+    }
+
+    const onSent = async (prompt) => {
         setResultData("")
         setloading(true)
         setShowResult(true)
-        setRecentPrompt(input)
-        const response = await run(input)
+        let response;
+        if(prompt !== undefined){
+            response = await run(prompt)
+            setRecentPrompt(prompt)
+        }else{
+            setRecentPrompt(input)
+            setPrevPrompts(prev => [...prev, input])
+            response = await run(input)
+        }
         let responseArray = response.split("**");
         let newResponse = '';
         for (let i = 0; i < responseArray.length; i++) {
@@ -54,7 +66,8 @@ const ContextProvider = ({ children }) => {
         loading,
         resultData,
         setInput,
-        input
+        input,
+        newChat
     }
 
     return (
