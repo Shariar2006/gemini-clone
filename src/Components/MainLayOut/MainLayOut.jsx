@@ -12,10 +12,7 @@ const MainLayOut = () => {
 
     const {
         onSent,
-        prevPrompts,
-        setPrevPrompts,
         recentPrompt,
-        setRecentPrompt,
         showResult,
         loading,
         resultData,
@@ -70,7 +67,9 @@ const MainLayOut = () => {
                         <div className="absolute flex gap-3 text-xl -mt-11 right-5">
                             {/* <LuImagePlus /> */}
                             {/* <MdOutlineKeyboardVoice /> */}
-                            <VscSend onClick={() => onSent()} className="cursor-pointer" />
+                            {
+                                input ? <VscSend onClick={() => onSent()} className="cursor-pointer" /> : ''
+                            }
 
                         </div>
                     </form>
