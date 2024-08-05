@@ -36,7 +36,7 @@ const MainLayOut = () => {
                 {
                     !showResult ? <div>
                         <div className="welcomeText text-[25px] md:text-[56px]">
-                            <p><span>Hello, Shariar Alam</span></p>
+                            <p><span>Welcome to Gemini Ai</span></p>
                             <p>How can I help you today?</p>
                         </div>
                         <Cards />
