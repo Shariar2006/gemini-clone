@@ -12,6 +12,9 @@ const ContextProvider = ({ children }) => {
     const [showResult, setShowResult] = useState(false)
     const [loading, setloading] = useState(false)
     const [resultData, setResultData] = useState("")
+    const [themeMode, setThemeMode] = useState(
+        localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light'
+    );
 
     const delayPara = (index, nextWord) => {
         setTimeout(function () {
@@ -29,10 +32,10 @@ const ContextProvider = ({ children }) => {
         setloading(true)
         setShowResult(true)
         let response;
-        if(prompt !== undefined){
+        if (prompt !== undefined) {
             response = await run(prompt)
             setRecentPrompt(prompt)
-        }else{
+        } else {
             setRecentPrompt(input)
             setPrevPrompts(prev => [...prev, input])
             response = await run(input)
@@ -67,7 +70,9 @@ const ContextProvider = ({ children }) => {
         resultData,
         setInput,
         input,
-        newChat
+        newChat,
+        themeMode,
+        setThemeMode,
     }
 
     return (
