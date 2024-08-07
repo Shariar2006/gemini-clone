@@ -17,7 +17,8 @@ const MainLayOut = () => {
         loading,
         resultData,
         setInput,
-        input
+        input,
+        themeMode
     } = useContext(Context)
 
     const handlePrompt = e => {
@@ -49,19 +50,15 @@ const MainLayOut = () => {
                         <div className="flex items-start gap-5">
                             <img className="w-10 h-10 rounded-full" src={icon} alt="gemini icon" />
                             {
-                                loading ? <div className="loader darkLoader">
-                                    <hr />
-                                    <hr />
-                                    <hr />
-                                </div>
+                                loading ?
+                                    <div className={themeMode === "light" ? 'loader' : 'darkLoader'}>
+                                        <hr />
+                                        <hr />
+                                        <hr />
+                                    </div>
                                     :
                                     <p className="leading-loose dark:text-[#919292]" dangerouslySetInnerHTML={{ __html: resultData }}></p>
                             }
-                            <div className="loader darkLoader">
-                                    <hr />
-                                    <hr />
-                                    <hr />
-                                </div>
                         </div>
 
                     </div>
@@ -73,7 +70,7 @@ const MainLayOut = () => {
                             {/* <LuImagePlus /> */}
                             {/* <MdOutlineKeyboardVoice /> */}
                             {
-                                input ? <VscSend onClick={() => onSent()} className="cursor-pointer" /> : ''
+                                input ? <VscSend onClick={() => onSent()} className="cursor-pointer dark:text-[#919292]" /> : ''
                             }
 
                         </div>
